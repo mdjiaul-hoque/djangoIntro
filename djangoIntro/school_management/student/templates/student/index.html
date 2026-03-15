@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Student profile....</h1>
+    <p>Name: {{name}}</p>
+    <p>Age: {{age}}</p>
+    {% if age > 20 %}
+    <h2>You are Adult</h2>
+    {% else %}
+    <h2>You are child</h2>
+    {% endif %}
+
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>Subject</th>
+        <th>Mark</th>
+        <th>Grad</th>
+      </tr>
+
+      {% for subject in marks %}
+      <tr>
+        <td>{{subject.id}}</td>
+        <td>{{subject.subject}}</td>
+        <td>{{subject.mark}}</td>
+        <td>
+          {% if subject.mark >= 90 %} A+ {% elif subject.mark >= 80 %} B 
+          {% elif subject.mark >= 70 %} c {% elif subject.mark >= 60 %} D
+          {% else %} F {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
