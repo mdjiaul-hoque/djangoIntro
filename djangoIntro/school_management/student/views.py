@@ -2,14 +2,21 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def home(request):
-    return HttpResponse("student home")
 
+# student/home
+def home(request):
+    return HttpResponse("<h1>Student's Home</h1>")
+
+
+# student/profile
 def profile(request):
+
     user_data = {
         "name" : "Abdur Rahim",
         "age"  : 20
     }
+
+    
     marks = [
         {
             "id" : 1,
@@ -34,6 +41,10 @@ def profile(request):
             ]
 
     # return HttpResponse("student profile")
+
+    # template render
     # return render(request, 'student/index.html')
     # return render(request, 'student/index.html', user_data)
+
+    # template render with json data
     return render(request, 'student/index.html', {"marks" : marks})

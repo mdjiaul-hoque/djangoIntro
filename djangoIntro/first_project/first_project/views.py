@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 
 def home(request):
-    print("home page")
+    # print("home page")
     # return HttpResponse("home page")
-    return HttpResponse( "<h1>home page</h1>" )
+    return HttpResponse( "<h1>This is Home page</h1>" )  
+ 
