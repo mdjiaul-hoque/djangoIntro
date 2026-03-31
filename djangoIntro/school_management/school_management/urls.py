@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # globale template
-    path('global/', views.home),
+    path('', views.home),
     # child paths
     path('student/', include('student.urls')),
     path('teacher/', include('teacher.urls')),

@@ -1,13 +1,17 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'student/css/index.css' %}" >
     <title>Student info</title>
   </head>
-  
+
   <body>
     <h1>Student profile....</h1>
+    <img src="{% static 'student/images/image.png' %}" alt="">
     <p>Name: {{name}}</p>
     <p>Age: {{age}}</p>
     {% if age > 20 %}
