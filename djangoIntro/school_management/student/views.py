@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from . import models
 
 # Create your views here.
 
@@ -7,6 +8,12 @@ from django.http import HttpResponse
 def home(request):
     return HttpResponse("<h1>Student's Home</h1>")
 
+
+#student info delete
+def delete_student(request, id):
+        student = models.Student.object.get(id = id)
+        student.delete()
+        return HttpResponse("Student delete successfully")
 
 # student/profile
 def profile(request):
@@ -39,6 +46,9 @@ def profile(request):
             "mark" : 60
         }
             ]
+    
+    student_data=models.Student.objects.all()
+    # print(student_data)
 
     # return HttpResponse("student profile")
 
@@ -47,4 +57,11 @@ def profile(request):
     # return render(request, 'student/index.html', user_data)
 
     # template render with json data
-    return render(request, 'student/index.html', {"marks" : marks})
+    return render(request, 'student/index.html', {"marks" : marks, 'student_data': student_data})
+
+
+
+
+
+
+
